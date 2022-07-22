@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('elections', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->dateTime('started_at');
-            $table->dateTime('ended_at');
+            $table->dateTime('starts_at');
+            $table->dateTime('ends_at');
             $table->integer('election_status_id');
         });
     }

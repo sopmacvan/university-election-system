@@ -10,8 +10,8 @@ class Election extends Model
     use HasFactory;
 
     protected $fillable = [
-        'started_at',
-        'ended_at',
+        'starts_at',
+        'ends_at',
         'election_status_id'
     ];
 }
