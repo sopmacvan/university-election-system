@@ -14,4 +14,17 @@ class Election extends Model
         'ends_at',
         'election_status_id'
     ];
+
+    public function status()
+    {
+        return $this->belongsTo(ElectionStatus::class, 'election_status_id');
+    }
+
+    public function getStatus()
+    {
+        return $this->status->status_value;
+    }
+
+
+
 }

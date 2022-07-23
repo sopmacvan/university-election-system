@@ -14,4 +14,9 @@ class Candidate extends Model
         'position_id',
         'election_id'
     ];
+
+    public function countVotes()
+    {
+        return $this->hasMany(VotedCandidate::class)->count();
+    }
 }

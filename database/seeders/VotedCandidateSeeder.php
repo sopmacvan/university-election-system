@@ -33,7 +33,7 @@ class VotedCandidateSeeder extends Seeder
 
 //            convert candidate_ids into an array
             foreach ($candidates as $candidate) {
-                array_push($candidate_ids, $candidate->id);
+                $candidate_ids[] = $candidate->id;
             }
 
 //            create vote
