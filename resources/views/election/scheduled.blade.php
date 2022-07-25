@@ -20,6 +20,17 @@
                 <h2>start date: &lt insert start date &gt</h2>
                 <h2>end date: &lt insert end date &gt</h2>
 
+                @if(Auth::user()->hasRole('non-admin'))
+                    <a href="" class="btn btn-primary btn-sm">
+                        Register as a Candidate
+                    </a>
+                @endif
+                @if(Auth::user()->hasRole('admin'))
+                    <a href="" class="btn btn-danger btn-sm">
+                        Cancel Election
+                    </a>
+                @endif
+
             </div>
         </div>
     </div>

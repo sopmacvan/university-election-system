@@ -17,6 +17,9 @@
                 @endif
 
                 <h1>Election has ended</h1>
+                <a href="" class="btn btn-primary btn-sm">
+                    View Results
+                </a>
 
             </div>
         </div>

@@ -17,9 +17,9 @@
                 @endif
 
                 <h1>Election is ongoing</h1>
-{{--                <a href="/edit-organization/{{ $org->getId() }}" class="btn btn-primary btn-sm">--}}
-{{--                    Start --}}
-{{--                </a>--}}
+                <a href="" class="btn btn-primary btn-sm">
+                    Vote Now
+                </a>
 
 
             </div>

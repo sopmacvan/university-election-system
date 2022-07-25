@@ -19,10 +19,9 @@ class ElectionSeeder extends Seeder
     {
         DB::table('elections')->truncate();
 
-        $today_date = Carbon::now();
         Election::create([
-            'starts_at' => $today_date->addDay(7),
-            'ends_at' => $today_date->addDay(14),
+            'starts_at' => Carbon::now()->addDays(7),
+            'ends_at' => Carbon::now()->addDays(14),
             'election_status_id' => 1
         ]);
     }
