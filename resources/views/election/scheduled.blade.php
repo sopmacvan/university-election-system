@@ -21,7 +21,7 @@
                 <h2>end date: &lt insert end date &gt</h2>
 
                 @if(Auth::user()->hasRole('non-admin'))
-                    <a href="" class="btn btn-primary btn-sm">
+                    <a href="{{ route('register-candidate') }}" class="btn btn-primary btn-sm">
                         Register as a Candidate
                     </a>
                 @endif
