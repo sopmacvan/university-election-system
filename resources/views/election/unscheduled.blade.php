@@ -18,7 +18,7 @@
 
                 <h1>No scheduled election</h1>
                 @if(Auth::user()->hasRole('admin'))
-                    <a href="" class="btn btn-primary btn-sm">
+                    <a href="{{ route('create-election') }}" class="btn btn-primary btn-sm">
                         Create New
                     </a>
                 @endif

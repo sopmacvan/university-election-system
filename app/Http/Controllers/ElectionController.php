@@ -28,5 +28,25 @@ class ElectionController extends Controller
         }
         return view('election.unscheduled');
     }
+
+    public function createElection(){
+        return view('election.create-new');
+    }
+    public function saveCreatedElection(Request $request){
+        //convert to timestamp
+        $start_date = strtotime($request->start_date);
+        $end_date = strtotime($request->end_date);
+
+        //convert dates format to y-m-d
+        $start_date = date("Y-m-d", $start_date);
+        $end_date = date("Y-m-d", $end_date);
+
+        Election::create([
+            'starts_at' => $start_date,
+            'ends_at' => $end_date
+        ]);
+
+        return redirect('/home');
+    }
 }
 

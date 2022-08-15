@@ -24,3 +24,6 @@ Route::get('/', function () {
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [ElectionController::class, 'showElectionStatus'])->name('home');
+
+Route::get('/create-election', [ElectionController::class, 'createElection'])->name('create-election');
+Route::post('/save-created-election', [ElectionController::class, 'saveCreatedElection'])->name('save-created-election');
