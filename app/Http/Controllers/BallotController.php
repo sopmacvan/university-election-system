@@ -27,6 +27,21 @@ class BallotController extends Controller
         return view('election.ballot.ballot-form', compact('positions', 'candidates_per_position'));
     }
 
+    public function saveVote(Request $request){
+        $election = Election::latest()->first();
+
+        foreach ($request->voted_candidate as $vote){
+            if (!is_null($vote)){
+                VotedCandidate::create([
+                    'user_id' => Auth::user()->id,
+                    'candidate_id' => $vote,
+                    'election_id' => $election->id,
+                ]);
+            }
+        }
+        return redirect('/home');
+    }
+
     private function voteExists($election_id): bool
     {
         //check if user's vote exists
@@ -35,6 +50,15 @@ class BallotController extends Controller
             ->first();
 
         return !is_null($vote);
+    }
+    public function showResultTally(){
+        $election = Election::latest()->first();
+        $positions = Position::all();
+
+        $candidates = Candidate::where('election_id', $election->id)->get();
+        $candidates_per_position = $this->getCandidatesPerPosition($candidates);
+
+        return view('election.ballot.result', compact('positions', 'candidates_per_position'));
     }
 
     private function getCandidatesPerPosition($candidates): array
@@ -69,19 +93,5 @@ class BallotController extends Controller
             'secretary' => $secretary,
             'treasurer' => $treasurer,
             'pro' => $pro);
-    }
-    public function saveVote(Request $request){
-        $election = Election::latest()->first();
-
-        foreach ($request->voted_candidate as $vote){
-            if (!is_null($vote)){
-                VotedCandidate::create([
-                    'user_id' => Auth::user()->id,
-                    'candidate_id' => $vote,
-                    'election_id' => $election->id,
-                ]);
-            }
-        }
-        return redirect('/home');
     }
 }

@@ -29,3 +29,7 @@ Route::get('/home', [ElectionController::class, 'showElectionStatus'])->name('ho
 //feature4 voting
 Route::get('/vote', [BallotController::class, 'startVoting'])->name('vote');
 Route::post('/save-vote', [BallotController::class, 'saveVote'])->name('save-vote');
+
+//feature5 view results
+Route::get('/result', [BallotController::class, 'showResultTally'])->name('result');
+
