@@ -17,7 +17,7 @@
                 @endif
 
                 <h1>Election is ongoing</h1>
-                <a href="" class="btn btn-primary btn-sm">
+                <a href="{{ route('vote') }}" class="btn btn-primary btn-sm">
                     Vote Now
                 </a>
 

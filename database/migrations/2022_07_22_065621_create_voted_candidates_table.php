@@ -18,6 +18,7 @@ return new class extends Migration
             $table->timestamps();
             $table->integer('user_id');
             $table->integer('candidate_id');
+            $table->integer('election_id');
         });
     }
 

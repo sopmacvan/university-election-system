@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BallotController;
 use App\Http\Controllers\ElectionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -24,3 +25,7 @@ Route::get('/', function () {
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [ElectionController::class, 'showElectionStatus'])->name('home');
+
+//feature4 voting
+Route::get('/vote', [BallotController::class, 'startVoting'])->name('vote');
+Route::post('/save-vote', [BallotController::class, 'saveVote'])->name('save-vote');
