@@ -25,15 +25,15 @@
                         Register as a Candidate
                     </a>
                 @endif
-                @if(Auth::user()->hasRole('admin'))
-                    <a href="" class="btn btn-danger btn-sm">
+                @if(Auth::user()->hasRole('admin'))             
+                <a href="welcome" class="btn btn-primary btn-sm">
                         Cancel Election
                     </a>
                 @endif
-
+  
             </div>
-        </div>
     </div>
     </div>
+</div>
 
 @endsection

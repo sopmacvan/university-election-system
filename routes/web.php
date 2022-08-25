@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 use App\Http\Controllers\ElectionController;
 use Illuminate\Support\Facades\Auth;
@@ -24,3 +24,4 @@ Route::get('/', function () {
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [ElectionController::class, 'showElectionStatus'])->name('home');
+Route::view('/welcome','election.unscheduled');
