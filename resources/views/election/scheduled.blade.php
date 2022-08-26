@@ -26,7 +26,7 @@
                     </a>
                 @endif
                 @if(Auth::user()->hasRole('admin'))
-                <a href="{{ route('cancel-election') }}" class="btn btn-primary btn-sm">
+                <a href="{{ route('cancel-election') }}" class="btn btn-danger btn-sm">
                         Cancel Election
                     </a>
                 @endif
