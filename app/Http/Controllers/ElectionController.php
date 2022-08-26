@@ -28,5 +28,12 @@ class ElectionController extends Controller
         }
         return view('election.unscheduled');
     }
+
+    public function cancelElection(){
+        $election = Election::latest()->first();
+        $election->delete();
+
+        return redirect('/home');
+    }
 }
 

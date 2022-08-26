@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 use App\Http\Controllers\ElectionController;
 use Illuminate\Support\Facades\Auth;
@@ -24,3 +24,6 @@ Route::get('/', function () {
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [ElectionController::class, 'showElectionStatus'])->name('home');
+
+ //feature 3 cancel election
+ Route::get('/cancel-election', [ElectionController::class, 'cancelElection'])->name('cancel-election');
