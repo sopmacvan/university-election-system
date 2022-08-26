@@ -28,5 +28,14 @@ class ElectionController extends Controller
         }
         return view('election.unscheduled');
     }
+
+    public function cancelElection(){
+        $election = Election::latest()->first();
+        $election->election_status_id = 4;
+
+        $election->save();
+
+        return redirect('/home');
+    }
 }
 

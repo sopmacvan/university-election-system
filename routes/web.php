@@ -24,4 +24,6 @@ Route::get('/', function () {
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [ElectionController::class, 'showElectionStatus'])->name('home');
-Route::view('/welcome','election.unscheduled');
+
+ //feature 3 cancel election
+ Route::get('/cancel-election', [ElectionController::class, 'cancelElection'])->name('cancel-election');
