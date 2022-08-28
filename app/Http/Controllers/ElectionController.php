@@ -45,6 +45,29 @@ class ElectionController extends Controller
             'starts_at' => $start_date,
             'ends_at' => $end_date
         ]);
+
+        return redirect('/home');
+
+    }
+    public function saveEditedElection(Request $request)
+    {
+        $election = Election::latest()->first();
+
+        //convert to timestamp
+        $start_date = strtotime($request->start_date);
+        $end_date = strtotime($request->end_date);
+
+        //convert dates format to y-m-d
+        $start_date = date("Y-m-d", $start_date);
+        $end_date = date("Y-m-d", $end_date);
+
+        //update and save changes
+        $election->starts_at = $start_date;
+        $election->ends_at = $end_date;
+        $election->save();
+
+        return redirect('/home');
+
     }
 
     public function cancelElection()

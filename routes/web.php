@@ -29,6 +29,8 @@ Route::get('/home', [ElectionController::class, 'showElectionStatus'])->name('ho
 //feature1 schedule election
 Route::view('/create-election', 'election.create-new')->name('create-election');
 Route::post('/save-created-election', [ElectionController::class, 'saveCreatedElection'])->name('save-created-election');
+Route::view('/edit-election', 'election.edit')->name('edit-election');
+Route::post('/save-edited-election', [ElectionController::class, 'saveEditedElection'])->name('save-edited-election');
 
 //feature2 register as candidate
 Route::get('/register-candidate', [CandidateController::class, 'registerCandidate'])->name('register-candidate');
