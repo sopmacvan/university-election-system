@@ -27,7 +27,7 @@ Route::get('/', function () {
 Route::get('/home', [ElectionController::class, 'showElectionStatus'])->name('home');
 
 //feature1 schedule election
-Route::view('/create-election', 'election.create-new');
+Route::view('/create-election', 'election.create-new')->name('create-election');
 Route::post('/save-created-election', [ElectionController::class, 'saveCreatedElection'])->name('save-created-election');
 
 //feature2 register as candidate

@@ -18,7 +18,9 @@ class ElectionController extends Controller
         $status = $election->getStatus();
 
         if ($status == 'scheduled') {
-            return view('election.scheduled');
+            $start_date = $election->starts_at;
+            $end_date = $election->ends_at;
+            return view('election.scheduled', compact(['start_date', 'end_date']));
         }
         if ($status == 'ongoing') {
             return view('election.ongoing');

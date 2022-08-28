@@ -17,8 +17,8 @@
                 @endif
 
                 <h1>Election has been scheduled</h1>
-                <h2>start date: &lt insert start date &gt</h2>
-                <h2>end date: &lt insert end date &gt</h2>
+                <h2>start date: {{ $start_date }}</h2>
+                <h2>end date: {{ $end_date }}</h2>
 
                 @if(Auth::user()->hasRole('non-admin'))
                     <a href="{{ route('register-candidate') }}" class="btn btn-primary btn-sm">
