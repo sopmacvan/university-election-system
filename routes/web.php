@@ -27,10 +27,12 @@ Route::get('/', function () {
 Route::get('/home', [ElectionController::class, 'showElectionStatus'])->name('home');
 
 //feature1 schedule election
-Route::get('/create-election', [ElectionController::class, 'createElection'])->name('create-election');
+Route::view('/create-election', 'election.create-new');
 Route::post('/save-created-election', [ElectionController::class, 'saveCreatedElection'])->name('save-created-election');
 
 //feature2 register as candidate
 Route::get('/register-candidate', [CandidateController::class, 'registerCandidate'])->name('register-candidate');
 Route::post('/save-registered-candidate', [CandidateController::class, 'saveRegisteredCandidate'])->name('save-registered-candidate');
 
+//feature 3 cancel election
+Route::get('/cancel-election', [ElectionController::class, 'cancelElection'])->name('cancel-election');

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->dateTime('starts_at');
             $table->dateTime('ends_at');
             $table->integer('election_status_id')->default(1);
+            $table->softDeletes();
         });
     }
 
