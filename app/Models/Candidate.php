@@ -15,8 +15,28 @@ class Candidate extends Model
         'election_id'
     ];
 
+    public function position()
+    {
+        return $this->belongsTo(Position::class, 'position_id');
+
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
     public function countVotes()
     {
         return $this->hasMany(VotedCandidate::class)->count();
+    }
+
+    public function registeredAs($position)
+    {
+        return $this->position->position_value == $position;
+    }
+
+    public function getName(){
+        return $this->user->name;
     }
 }
