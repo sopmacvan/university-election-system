@@ -41,7 +41,7 @@ class VotedCandidateSeeder extends Seeder
                 VotedCandidate::create([
                     'user_id' => $i,
                     'candidate_id' => $candidate_ids[array_rand($candidate_ids)],
-
+                    'election_id' => 1
                 ]);
             }
         }

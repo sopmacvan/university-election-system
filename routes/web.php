@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CandidateController;
+use App\Http\Controllers\BallotController;
 use App\Http\Controllers\ElectionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -38,3 +39,10 @@ Route::post('/save-registered-candidate', [CandidateController::class, 'saveRegi
 
 //feature 3 cancel election
 Route::get('/cancel-election', [ElectionController::class, 'cancelElection'])->name('cancel-election');
+
+//feature4 voting
+Route::get('/vote', [BallotController::class, 'startVoting'])->name('vote');
+Route::post('/save-vote', [BallotController::class, 'saveVote'])->name('save-vote');
+
+//feature5 view results
+Route::get('/result', [BallotController::class, 'showResultTally'])->name('result');
